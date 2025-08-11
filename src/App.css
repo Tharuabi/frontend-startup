@@ -1,0 +1,132 @@
+/* App.css - Responsive Base Styles */
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.logo {
+  height: clamp(4em, 8vw, 6em);
+  padding: clamp(1em, 2vw, 1.5em);
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: clamp(1em, 3vw, 2em);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Responsive container adjustments */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 clamp(1rem, 4vw, 1.5rem);
+  margin: 0 auto;
+}
+
+/* Responsive typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+h3 { font-size: clamp(1.125rem, 3vw, 1.5rem); }
+h4 { font-size: clamp(1rem, 2.5vw, 1.25rem); }
+h5 { font-size: clamp(0.875rem, 2vw, 1.125rem); }
+h6 { font-size: clamp(0.75rem, 1.5vw, 1rem); }
+
+p {
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+/* Responsive spacing utilities */
+.mt-1 { margin-top: clamp(0.25rem, 1vw, 0.5rem); }
+.mt-2 { margin-top: clamp(0.5rem, 2vw, 1rem); }
+.mt-3 { margin-top: clamp(0.75rem, 3vw, 1.5rem); }
+.mt-4 { margin-top: clamp(1rem, 4vw, 2rem); }
+.mt-5 { margin-top: clamp(1.5rem, 6vw, 3rem); }
+
+.mb-1 { margin-bottom: clamp(0.25rem, 1vw, 0.5rem); }
+.mb-2 { margin-bottom: clamp(0.5rem, 2vw, 1rem); }
+.mb-3 { margin-bottom: clamp(0.75rem, 3vw, 1.5rem); }
+.mb-4 { margin-bottom: clamp(1rem, 4vw, 2rem); }
+.mb-5 { margin-bottom: clamp(1.5rem, 6vw, 3rem); }
+
+.p-1 { padding: clamp(0.25rem, 1vw, 0.5rem); }
+.p-2 { padding: clamp(0.5rem, 2vw, 1rem); }
+.p-3 { padding: clamp(0.75rem, 3vw, 1.5rem); }
+.p-4 { padding: clamp(1rem, 4vw, 2rem); }
+.p-5 { padding: clamp(1.5rem, 6vw, 3rem); }
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 clamp(0.75rem, 3vw, 1.25rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .logo {
+    height: clamp(3em, 6vw, 4em);
+    padding: clamp(0.75em, 1.5vw, 1em);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 clamp(0.375rem, 1.5vw, 0.75rem);
+  }
+  
+  .logo {
+    height: clamp(2.5em, 5vw, 3em);
+    padding: clamp(0.5em, 1vw, 0.75em);
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 0 clamp(0.25rem, 1vw, 0.5rem);
+  }
+  
+  .logo {
+    height: clamp(2em, 4vw, 2.5em);
+    padding: clamp(0.375em, 0.75vw, 0.5em);
+  }
+}

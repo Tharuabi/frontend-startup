@@ -1,0 +1,502 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --deep-blue: #4A90E2;
+  --gradient-start: #64B5F6;
+  --gradient-end: #81C784;
+  --nice-blue: #2196F3;
+  --light-blue: #E3F2FD;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-600: #4B5563;
+  --gray-800: #1F2937;
+  --text-dark: #1A1A1A;
+  --text-light: #666666;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Dashboard Root */
+.dashboard-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-root.dark {
+  background: linear-gradient(135deg, var(--gray-800) 0%, var(--text-dark) 100%);
+  color: var(--white);
+}
+
+/* Top Bar */
+.dashboard-topbar {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gray-200);
+}
+
+.dashboard-topbar.dark {
+  background: var(--gray-800);
+  border-color: var(--gray-600);
+}
+
+/* Welcome Card */
+.dashboard-welcome {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gray-200);
+}
+
+.dashboard-welcome-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-user-name {
+  background: linear-gradient(135deg, var(--nice-blue), var(--deep-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dashboard-welcome-desc {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* Stats Row */
+.dashboard-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-stat-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--gray-200);
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--nice-blue);
+}
+
+.dashboard-stat-icon {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-stat-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-stat-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Projects Card */
+.dashboard-projects {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gray-200);
+}
+
+.dashboard-projects-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-projects-header h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Buttons */
+.dashboard-add-btn {
+  background: linear-gradient(135deg, var(--nice-blue), var(--deep-blue));
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--deep-blue), var(--nice-blue));
+}
+
+.dashboard-add-btn.active {
+  background: var(--nice-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-action-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0 0.25rem;
+}
+
+.dashboard-action-btn:hover {
+  background: var(--gray-100);
+  transform: scale(1.1);
+}
+
+/* Table Styles */
+.dashboard-table-wrapper {
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.dashboard-table th {
+  background: var(--gray-50);
+  color: var(--text-dark);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+}
+
+.dashboard-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--text-dark);
+}
+
+.dashboard-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+/* Status Badge */
+.dash-status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dash-status-badge.approved {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.dash-status-badge.pending {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.dash-status-badge.rejected {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+.dash-status-badge.open {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--gray-200);
+}
+
+.modal-content h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-content label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.modal-content input,
+.modal-content select {
+  padding: 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: none;
+  border-color: var(--nice-blue);
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+/* Notifications Panel */
+.dashboard-notifications-panel {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+}
+
+.dashboard-notifications-panel h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.notification-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item p {
+  margin: 0 0 0.25rem 0;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+}
+
+.notification-item span {
+  color: var(--text-light);
+  font-size: 0.75rem;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal-buttons button:first-child {
+  background: var(--gray-200);
+  color: var(--text-dark);
+}
+
+.modal-buttons button:first-child:hover {
+  background: var(--gray-300);
+}
+
+.modal-buttons button:last-child {
+  background: linear-gradient(135deg, var(--nice-blue), var(--deep-blue));
+  color: var(--white);
+}
+
+.modal-buttons button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Textarea for modal */
+.modal-content textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.modal-content textarea:focus {
+  outline: none;
+  border-color: var(--nice-blue);
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-root {
+    padding: 1rem;
+  }
+  
+  .dashboard-stats-row {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .dashboard-projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dashboard-table {
+    font-size: 0.75rem;
+  }
+  
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-root {
+    padding: 0.5rem;
+  }
+  
+  .dashboard-welcome {
+    padding: 1.5rem;
+  }
+  
+  .dashboard-welcome-title {
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-projects-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .dashboard-projects-header h3 {
+    font-size: 1.25rem;
+  }
+  
+  .dashboard-add-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Focus States for Accessibility */
+.dashboard-add-btn:focus,
+.dashboard-action-btn:focus,
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: 2px solid var(--nice-blue);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .dashboard-topbar,
+  .dashboard-add-btn,
+  .dashboard-action-btn {
+    display: none;
+  }
+}
