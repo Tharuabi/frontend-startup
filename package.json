@@ -7,11 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "engines": {
+    "preview": "vite preview"
+  },
+  "engines": {
     "node": "18.x"
-    }
-  
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.3.0",
