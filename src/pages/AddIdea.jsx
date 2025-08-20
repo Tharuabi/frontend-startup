@@ -131,10 +131,12 @@ const AddIdea = () => {
     }
 
     try {
-      const response = await fetch('/api/ideas', {
-        method: 'POST',
-        body: formDataToSend,
-      });
+      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+const response = await fetch(`${API_BASE_URL}/ideas`, {
+  method: 'POST',
+  body: formDataToSend,
+});
 
       if (response.ok) {
         setSubmissionSuccess(true);

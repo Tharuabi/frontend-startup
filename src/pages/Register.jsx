@@ -27,9 +27,11 @@ const Register = () => {
     setMessageType('');
 
     try {
-      const res = await axios.post('/api/register', formData);
+     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const res = await axios.post(`${API_BASE_URL}/register`, formData);
+
       setMessage(res.data.message);
-      setMessageType('success');
+      setMessageType('success');;
       
       // Redirect to login after successful registration
       setTimeout(() => {
