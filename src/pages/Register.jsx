@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../style/Register.css';
+import api from '../api.js'; // Centralized API instance
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    userType: 'user',
+    userType: 'user', // Default user type
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const [messageType, setMessageType] = useState(''); // 'success' or 'error'
   const navigate = useNavigate();
 
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -27,22 +29,19 @@ const Register = () => {
     setMessageType('');
 
     try {
-     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-const res = await axios.post(`${API_BASE_URL}/register`, formData);
+      const res = await api.post('/api/register', formData);
 
-      setMessage(res.data.message);
-      setMessageType('success');;
-      
-      // Redirect to login after successful registration
+      setMessage(res.data.message || 'Registration successful!');
+      setMessageType('success');
+
+      // Redirect to login after 2 seconds
       setTimeout(() => {
         navigate('/login');
       }, 2000);
     } catch (err) {
-      if (err.response && err.response.data) {
-        setMessage(err.response.data.message);
-      } else {
-        setMessage('Registration failed. Please try again.');
-      }
+      const errorMsg =
+        err.response?.data?.message || 'Registration failed. Please try again.';
+      setMessage(errorMsg);
       setMessageType('error');
     } finally {
       setLoading(false);
@@ -62,15 +61,19 @@ const res = await axios.post(`${API_BASE_URL}/register`, formData);
       <div className="register-container">
         <div className="register-header">
           <h1 className="register-title">Join MicroStartupX</h1>
-          <p className="register-subtitle">Create your account to start investing in the future</p>
+          <p className="register-subtitle">
+            Create your account to start investing in the future
+          </p>
         </div>
 
+        {/* Success/Error Message */}
         {message && (
           <div className={`register-message ${messageType}`}>
             {messageType === 'success' ? '✅' : '⚠️'} {message}
           </div>
         )}
 
+        {/* Registration Form */}
         <form onSubmit={handleSubmit} className="register-form">
           <div className="form-group">
             <label htmlFor="name">FULL NAME</label>
@@ -116,11 +119,11 @@ const res = await axios.post(`${API_BASE_URL}/register`, formData);
 
           <div className="form-group">
             <label htmlFor="userType">ACCOUNT TYPE</label>
-            <select 
+            <select
               id="userType"
-              name="userType" 
-              value={formData.userType} 
-              onChange={handleChange} 
+              name="userType"
+              value={formData.userType}
+              onChange={handleChange}
               required
               className="form-select"
             >
@@ -129,11 +132,7 @@ const res = await axios.post(`${API_BASE_URL}/register`, formData);
             </select>
           </div>
 
-          <button
-            type="submit"
-            className="register-button"
-            disabled={loading}
-          >
+          <button type="submit" className="register-button" disabled={loading}>
             {loading ? (
               <div className="loading-spinner">
                 <div className="spinner"></div>
@@ -145,6 +144,7 @@ const res = await axios.post(`${API_BASE_URL}/register`, formData);
           </button>
         </form>
 
+        {/* Footer */}
         <div className="register-footer">
           <p className="login-prompt">
             Already have an account?{' '}

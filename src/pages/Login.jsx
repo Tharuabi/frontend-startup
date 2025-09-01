@@ -1,39 +1,45 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import '../style/Login.css';
 import { useAuth } from '../context/AuthContext';
+import api from '../api.js'; // centralized Axios instance
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
+  // Handle login submission
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
 
     try {
-      const response = await axios.post('/api/login', formData);
+      const response = await api.post('/api/login', formData);
+
       if (response.data.token) {
+        // Store token and user data via AuthContext
         login(response.data.token, response.data.user);
         navigate('/home');
+      } else {
+        setMessage('Invalid response from server');
       }
     } catch (error) {
-      setMessage(error.response?.data?.message || 'Login failed');
+      setMessage(error.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -55,12 +61,16 @@ export default function Login() {
           <p className="login-subtitle">Sign in to your account to continue</p>
         </div>
 
+        {/* Display error or success message */}
         {message && (
-          <div className={`login-message ${message.includes('failed') ? 'error' : 'success'}`}>
+          <div
+            className={`login-message ${message.toLowerCase().includes('failed') ? 'error' : 'success'}`}
+          >
             {message}
           </div>
         )}
 
+        {/* Login Form */}
         <form onSubmit={handleLogin} className="login-form">
           <div className="form-group">
             <label htmlFor="email">EMAIL ADDRESS</label>
@@ -96,11 +106,7 @@ export default function Login() {
             </Link>
           </div>
 
-          <button
-            type="submit"
-            className="login-button"
-            disabled={loading}
-          >
+          <button type="submit" className="login-button" disabled={loading}>
             {loading ? (
               <div className="loading-spinner">
                 <div className="spinner"></div>
@@ -112,6 +118,7 @@ export default function Login() {
           </button>
         </form>
 
+        {/* Footer */}
         <div className="login-footer">
           <p className="register-prompt">
             Don't have an account?{' '}
