@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "engines": {
-    "node": "18.x"
+   "node": ">=18 <19"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.3.0",
