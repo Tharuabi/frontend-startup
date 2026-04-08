@@ -2,9 +2,9 @@
 :root {
   --ap-primary-color: #3B82F6; /* Blue-500 */
   --ap-secondary-color: #10B981; /* Emerald-500 */
-  --ap-text-dark: #1F2937; /* Gray-800 */
-  --ap-text-medium: #4B5563; /* Gray-600 */
-  --ap-text-light: #6B7280; /* Gray-500 */
+  --ap-text-dark: #ebf0f7; /* Gray-800 */
+  --ap-text-medium: #e3e8ee; /* Gray-600 */
+  --ap-text-light: #f9fafb; /* Gray-500 */
   --ap-background-light: #F9FAFB; /* Gray-50 */
   --ap-border-color: #D1D5DB; /* Gray-300 */
   --ap-input-bg: #FFFFFF;
@@ -50,7 +50,7 @@ body { /* Ensure base font is set if not globally */
 }
 .ap-form label {
   font-weight: 600;
-  color: #22223b;
+  color: #f9f9fbea;
   margin-bottom: 4px;
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@ body { /* Ensure base font is set if not globally */
 }
 .dashboard-add-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(99,102,241,.35);
+  box-shadow: 0 14px 36px rgb(246, 246, 249);
 }
 .dashboard-add-btn:active {
   transform: translateY(0);
@@ -144,7 +144,7 @@ body { /* Ensure base font is set if not globally */
 .ap-select:focus {
   outline: none;
   border-color: var(--ap-primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 3px rgba(235, 236, 237, 0.918);
 }
 
 .ap-textarea {

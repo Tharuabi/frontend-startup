@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api.js';
 import { useCart } from '../context/CartContext';
 import Chatbot from '../components/Chatbot';
 import '../style/ProjectPage.css';
@@ -206,8 +206,8 @@ const ProjectPage = () => {
     try {
       setIsLoading(true);
       const [projectsRes, ideasRes] = await Promise.all([
-        axios.get('/api/projects'),
-        axios.get('/api/ideas')
+        api.get('/api/projects'),
+        api.get('/api/ideas')
       ]);
       setProjects(projectsRes.data);
       setIdeas(ideasRes.data);
@@ -229,7 +229,7 @@ const ProjectPage = () => {
   // Track project view
   const trackProjectView = async (projectId) => {
     try {
-      await axios.put(`/api/projects/${projectId}/view`);
+      await api.put(`/api/projects/${projectId}/view`);
     } catch (err) {
       console.error('Error tracking view:', err);
     }
@@ -240,7 +240,7 @@ const ProjectPage = () => {
   // Handle idea like
   const handleLikeIdea = async (ideaId) => {
     try {
-      const response = await axios.put(`/api/ideas/${ideaId}/like`);
+      const response = await api.put(`/api/ideas/${ideaId}/like`);
       if (response.data.success) {
         setIdeas(prev => prev.map(idea => 
           idea._id === ideaId 

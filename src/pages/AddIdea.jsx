@@ -141,7 +141,9 @@ const response = await fetch(`${API_BASE_URL}/ideas`, {
       if (response.ok) {
         setSubmissionSuccess(true);
         setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           setFormData({
+
             title: '',
             description: '',
             category: '',

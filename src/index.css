@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Global offset for fixed navbar across all pages */
 :root {
   --app-navbar-height: 70px;

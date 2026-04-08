@@ -25,8 +25,8 @@ import Cancel from './pages/Cancel';
 import ViewPurchases from './pages/ViewPurchases';
 import Chatbot from './components/Chatbot';
 
-import './App.css';
-import './style/responsive.css';
+
+
 
 function App() {
   return (
